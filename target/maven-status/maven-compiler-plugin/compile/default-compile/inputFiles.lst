@@ -1,0 +1,8 @@
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/Main.java
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/decorator/AbstractDecorator.java
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/decorator/CashedDocument.java
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/decorator/DBConnection.java
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/decorator/Document.java
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/decorator/MockedDocument.java
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/decorator/SmartDocument.java
+/Users/mariatsymbal/Desktop/lab10/src/main/java/ua/ucu/edu/apps/decorator/TimedDocument.java
