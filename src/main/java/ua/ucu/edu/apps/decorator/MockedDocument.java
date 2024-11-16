@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MockedDocument implements Document {
 
-    private String gcsPath;
-
     private static final int SLEEP_TIME = 2000;
+
+    private String gcsPath;
 
     @Override
     public String parse() {

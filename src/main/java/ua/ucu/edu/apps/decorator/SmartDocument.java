@@ -35,10 +35,10 @@ public class SmartDocument implements Document {
                 .addFeatures(feat).setImage(img).build();
         requests.add(request);
 
-        try (ImageAnnotatorClient imageAnnotatorClient
+        try (ImageAnnotatorClient IMAGE_ANNOTATOR_CLIENT
          = ImageAnnotatorClient.create()) {
             BatchAnnotateImagesResponse response
-             = imageAnnotatorClient.batchAnnotateImages(requests);
+             = IMAGE_ANNOTATOR_CLIENT.batchAnnotateImages(requests);
             List<AnnotateImageResponse> responses
              = response.getResponsesList();
 
