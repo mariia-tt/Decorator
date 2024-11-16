@@ -19,8 +19,9 @@ public class DocumentDecoratorTest {
         DBConnection mockDb = Mockito.mock(DBConnection.class);
         Document mockDocument = Mockito.mock(Document.class);
 
-        try (MockedStatic<DBConnection> DB_CONNECTION_MOCK = Mockito.mockStatic(DBConnection.class)) { // Renamed variable
-            DB_CONNECTION_MOCK.when(DBConnection::getInstance) // Broken long line
+        try (MockedStatic<DBConnection> DB_CONNECTION_MOCK
+         = Mockito.mockStatic(DBConnection.class)) {
+            DB_CONNECTION_MOCK.when(DBConnection::getInstance)
                             .thenReturn(mockDb);
 
             Mockito.when(mockDocument.getGcsPath()).thenReturn("somePath");
