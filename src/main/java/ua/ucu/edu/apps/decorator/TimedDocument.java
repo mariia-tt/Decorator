@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.time.Duration;
 
 public class TimedDocument extends AbstractDecorator {
+
     public TimedDocument(Document document) {
         super(document);
     }
@@ -11,15 +12,16 @@ public class TimedDocument extends AbstractDecorator {
     @Override
     public String parse() {
         LocalTime startTime = LocalTime.now();
-        String parsed = document.parse();
+        String parsed = getDocument().parse();
         LocalTime endTime = LocalTime.now();
-        System.out.println("Time: " + Duration.between(startTime, endTime).getSeconds());
+        System.out.println("Time: "
+         + Duration.between(startTime, endTime).getSeconds());
 
         return parsed;
     }
 
     @Override
     public String getGcsPath() {
-        return document.getGcsPath();
+        return getDocument().getGcsPath();
     }
 }

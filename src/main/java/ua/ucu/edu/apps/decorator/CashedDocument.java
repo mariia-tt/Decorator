@@ -8,20 +8,20 @@ public class CashedDocument extends AbstractDecorator {
 
     @Override
     public String parse() {
-        String cached = DBConnection.getInstance().getDocument(document.getGcsPath());
+        String cached = DBConnection.getInstance()
+        .getDocument(getDocument().getGcsPath()); 
         if (cached != null) {
             return cached;
         } else {
-            String parsed = document.parse();
-            DBConnection.getInstance().createDocument(document.getGcsPath(), parsed);
+            String parsed = getDocument().parse();
+            DBConnection.getInstance()
+            .createDocument(getDocument().getGcsPath(), parsed); 
             return parsed;
         }
-
     }
 
     @Override
     public String getGcsPath() {
-        return document.getGcsPath();
+        return getDocument().getGcsPath();
     }
-    
 }

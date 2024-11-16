@@ -6,14 +6,18 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class MockedDocument implements Document {
-    public String gcsPath;
+
+    private String gcsPath;
+
+    private static final int SLEEP_TIME = 2000;
+
     @Override
     public String parse() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(SLEEP_TIME);
         } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         return "Mocked Document Parse";
     }
-
 }

@@ -19,26 +19,32 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public class SmartDocument implements Document {
-    public String gcsPath;
+    private String gcsPath;
 
     @SneakyThrows
     public String parse() {
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
-        ImageSource imgSource = ImageSource.newBuilder().setGcsImageUri(gcsPath).build();
+        ImageSource imgSource = ImageSource.newBuilder()
+        .setGcsImageUri(gcsPath).build();
         Image img = Image.newBuilder().setSource(imgSource).build();
-        Feature feat = Feature.newBuilder().setType(Type.DOCUMENT_TEXT_DETECTION).build();
+        Feature feat = Feature.newBuilder()
+        .setType(Type.DOCUMENT_TEXT_DETECTION).build();
         AnnotateImageRequest request =
-                AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
+                AnnotateImageRequest.newBuilder()
+                .addFeatures(feat).setImage(img).build();
         requests.add(request);
 
-        try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
-            BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
-            List<AnnotateImageResponse> responses = response.getResponsesList();
-            client.close();
+        try (ImageAnnotatorClient imageAnnotatorClient
+         = ImageAnnotatorClient.create()) {
+            BatchAnnotateImagesResponse response
+             = imageAnnotatorClient.batchAnnotateImages(requests);
+            List<AnnotateImageResponse> responses
+             = response.getResponsesList();
 
             for (AnnotateImageResponse res : responses) {
-                TextAnnotation annotation = res.getFullTextAnnotation();
+                TextAnnotation annotation
+                 = res.getFullTextAnnotation();
                 return annotation.getText();
             }
         }

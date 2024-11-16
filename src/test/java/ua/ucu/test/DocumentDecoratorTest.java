@@ -20,19 +20,22 @@ public class DocumentDecoratorTest {
         Document mockDocument = Mockito.mock(Document.class);
 
         try (MockedStatic<DBConnection> dbConnectionMock = Mockito.mockStatic(DBConnection.class)) {
-            dbConnectionMock.when(DBConnection::getInstance).thenReturn(mockDb);
+            dbConnectionMock.when(DBConnection::getInstance)
+                            .thenReturn(mockDb);
 
             Mockito.when(mockDocument.getGcsPath()).thenReturn("somePath");
             Mockito.when(mockDocument.parse()).thenReturn("Parsed Content");
 
-            Mockito.when(mockDb.getDocument("somePath")).thenReturn("Cached Content");
+            Mockito.when(mockDb.getDocument("somePath"))
+                   .thenReturn("Cached Content");
 
             CashedDocument cashedDocument = new CashedDocument(mockDocument);
 
             String cached = cashedDocument.parse();
             Assertions.assertEquals("Cached Content", cached);
 
-            Mockito.verify(mockDb, Mockito.times(1)).getDocument("somePath");
+            Mockito.verify(mockDb, Mockito.times(1))
+                   .getDocument("somePath");
             Mockito.verify(mockDocument, Mockito.never()).parse();
         }
     }
