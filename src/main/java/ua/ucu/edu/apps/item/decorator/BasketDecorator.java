@@ -3,10 +3,10 @@ package ua.ucu.edu.apps.item.decorator;
 import ua.ucu.edu.apps.item.Item;
 
 public class BasketDecorator extends ItemDecorator {
-    private Item item;
-    
     private static final double BASKET_ADDITIONAL_COST = 4.0;
 
+    private Item item;
+    
     public BasketDecorator(Item item) {
         super(item);
         this.item = item;

@@ -3,9 +3,9 @@ package ua.ucu.edu.apps.item.decorator;
 import ua.ucu.edu.apps.item.Item;
 
 public class RibbonDecorator extends ItemDecorator {
-    private Item item;
-
     private static final double RIBBON_ADDITIONAL_COST = 40.0;
+
+    private Item item;
 
     public RibbonDecorator(Item item) {
         super(item);
