@@ -23,7 +23,7 @@ public class ItemDecoratorTest {
         private final double basePrice;
         private final String description;
 
-        public TestItem(double basePrice, String description) {
+        TestItem(double basePrice, String description) {
             this.basePrice = basePrice;
             this.description = description;
         }
