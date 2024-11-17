@@ -9,8 +9,6 @@ import ua.ucu.edu.apps.item.decorator.RibbonDecorator;
 import org.junit.jupiter.api.Assertions;
 
 public class ItemDecoratorTest {
-    private Item baseItem;
-
     private static final double BASE_PRICE = 10.0;
     private static final double BASKET_COST = 4.0;
     private static final double PAPER_COST = 13.0;
@@ -18,6 +16,8 @@ public class ItemDecoratorTest {
     private static final double ZERO_BASE_PRICE = 0.0;
     private static final String BASE_DESCRIPTION = "Test Item";
     private static final String ZERO_PRICE_DESCRIPTION = "Zero Price Item";
+
+    private Item baseItem;
 
     private static class TestItem extends Item {
         private final double basePrice;
